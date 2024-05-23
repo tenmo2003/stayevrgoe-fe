@@ -8,9 +8,7 @@ import Profile from "./pages/Profile";
 function App() {
   return (
     <>
-      <div>
-          <Navbar/>
-      </div>
+      <Navbar />
       <BrowserRouter>
         <Routes>
           <Route path="/">

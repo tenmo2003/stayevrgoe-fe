@@ -10,9 +10,9 @@ function Home() {
 
   return (
     <div className="flex-col justify-center">
-      <Carousel afterChange={onChange} className='bottom-7'>
+      <Carousel afterChange={onChange} className = "mb-6">
         <div>
-          <img className="h-[480px] w-[100%] object-fill" src={img1} />
+          <img className="h-[480px] w-[100%] object-fill" src={img} />
         </div>
         <div>
           <img className="h-[480px] w-[100%] object-fill" src={img} />
