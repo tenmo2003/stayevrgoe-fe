@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import Test from "./pages/test/Test";
 import Navbar from "./navs/NavBar";
 import Profile from "./pages/Profile";
+import HotelList from "./pages/HotelList";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="test" element={<Test />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="hotelList" element={<HotelList />} />
           </Route>
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>

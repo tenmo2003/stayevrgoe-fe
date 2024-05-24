@@ -24,7 +24,7 @@ const Navbar = () => {
                         </div>
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
-                                <a className='text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' href="/test">Test page</a>
+                                <a className='text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium' href="/hotelList">Khách sạn</a>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ const Navbar = () => {
                             </div>
                             <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden group-hover:block">
                                 <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 active:font-bold" href="/profile">Profile</a>
-                                <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 active:font-bold" href="#">Logout</a>
+                                <a className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 active:font-bold" href="/">Logout</a>
                             </div>
                         </div>
                     </div>
