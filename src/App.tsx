@@ -4,6 +4,8 @@ import Home from "./pages/home/Home";
 import Test from "./pages/test/Test";
 import Navbar from "./navs/NavBar";
 import Profile from "./pages/Profile";
+import HotelDetail from "./pages/detailHotel";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path="test" element={<Test />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="hoteldetail" element ={<HotelDetail/>}/>
+            <Route path="payment" element={<Payment/>}/>
           </Route>
           <Route path="*" element={<div>Not Found</div>} />
         </Routes>
