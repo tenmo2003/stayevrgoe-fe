@@ -156,7 +156,7 @@ export default function Admin() {
                                         />
                                     </div>
                                     
-                                    <Table scroll={{ x: 800 }} dataSource={[]} columns={HotellistColumns} />
+                                    <Table scroll={{ x: 800 }} dataSource={[]} columns={WaitlistColumns} />
                                 </TabPane>
                                 <TabPane tab="Danh sách khách sạn" key="3">
                                     {/* Nội dung của Danh sách khách sạn */}
