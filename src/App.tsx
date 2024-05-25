@@ -11,7 +11,12 @@ import { useState } from "react";
 import UserContext from "./contexts/UserContext";
 
 function App() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({
+    fullName: "",
+    role: "",
+    email: "",
+    phoneNumber: ""
+  });
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

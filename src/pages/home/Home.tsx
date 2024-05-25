@@ -13,14 +13,6 @@ function Home() {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      service.get("/users/me").then((res) => {
-        setUser(res.data.data);
-      });
-    }
-  }, []);
-
-  useEffect(() => {
     console.log(user);
   }, [user]);
 

@@ -11,8 +11,16 @@ import {
 import { PlusOutlined, FilterFilled, EnvironmentFilled, MoneyCollectFilled, StarFilled  } from '@ant-design/icons'
 import ava from "../assets/ava.png"
 import { Button } from 'antd'
+import UserContext from "../contexts/UserContext";
+import { useContext, useEffect } from "react";
 
 export default function HotelList() {
+    const { user, setUser } = useContext(UserContext);
+
+    useEffect(() => {
+        console.log(user);
+    }, [user]);
+
     const sortOptions = [
         { name: "Most Popular", href: "#", current: true },
         { name: "Best Rating", href: "#", current: false },
@@ -54,7 +62,7 @@ export default function HotelList() {
             <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-10">
                     <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-                    Kết quả tìm kiếm cho "xxx" / Danh sách khách sạn
+                    Danh sách khách sạn
                     </h1>
 
                     <div className="flex items-center">
