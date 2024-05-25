@@ -157,7 +157,7 @@ export default function HotelList() {
                             <div className="flex flex-row flex-wrap">
 
                                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 m-2 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:opacity-50">
-                                    <a href="/test">
+                                    <a href="/hoteldetail">
                                         <img className="rounded-t-lg" src={ava} alt="" />
                                         <div className="p-5">
                                             <h5 className="mb-2 font-bold tracking-tight text-gray-900 dark:text-white text-center">Tên khách sạn</h5>

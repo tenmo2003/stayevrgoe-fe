@@ -3,13 +3,30 @@ import img from "../../assets/hinh8.jpg";
 import img1 from "../../assets/hinh11.webp";
 import img2 from "../../assets/hinh10.webp";
 import img3 from "../../assets/hinh12.jpg";
+import { useContext, useEffect } from "react";
+import service from "../../service/service";
+import UserContext from "../../contexts/UserContext";
 
 import ks1 from "../../assets/ks1.webp";
 function Home() {
+  const { user, setUser } = useContext(UserContext);
 
   const onChange = (currentSlide: any) => {
     console.log(currentSlide);
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      service.get("/users/me").then((res
+      ) => {
+        setUser(res.data.data);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   return (
     <div className="flex-col justify-center mb-12">
@@ -27,15 +44,14 @@ function Home() {
           <img className="h-[480px] w-[100%] object-fill" src={img3} />
         </div>
       </Carousel>
-      <div className='flex justify-center'>
-        <div className="flex-col w-[90%]">
-          <h1 className="text-2xl font-bold text-center mb-6">
+      <div className="flex justify-center">
+        <div className="w-[90%] flex-col">
+          <h1 className="mb-6 text-center text-2xl font-bold">
             Khách sạn tiêu biểu
           </h1>
           <div className="flex flex-row flex-wrap">
-
-            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-2 max-w-sm ">
-              <div className='bg-white border border-gray-200 rounded-lg shadow bg-[white]'>
+            <div className="w-full max-w-sm p-2 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 ">
+              <div className="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
                 <a href="/hoteldetail">
                   <img className="rounded-t-lg w-full h-[200px]" src={ks1} alt="" />
                 </a>
@@ -59,8 +75,6 @@ function Home() {
 
         </div>
       </div>
-
-
     </div>
   );
 }
