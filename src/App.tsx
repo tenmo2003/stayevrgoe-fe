@@ -7,10 +7,14 @@ import HotelDetail from "./pages/detailHotel";
 import Payment from "./pages/Payment";
 import HotelList from "./pages/HotelList";
 import Admin from "./pages/Admin";
+import { useState } from "react";
+import UserContext from "./contexts/UserContext";
 
 function App() {
+  const [user, setUser] = useState();
+
   return (
-    <>
+    <UserContext.Provider value={{ user, setUser }}>
       <Navbar />
       <BrowserRouter>
         <Routes>
@@ -35,7 +39,7 @@ function App() {
           duration: 2000,
         }}
       />
-    </>
+    </UserContext.Provider>
   );
 }
 
