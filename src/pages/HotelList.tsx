@@ -13,12 +13,29 @@ import ava from "../assets/ava.png"
 import { Button } from 'antd'
 import UserContext from "../contexts/UserContext";
 import { useContext, useEffect } from "react";
+import { toast } from "sonner";
+import service from "../service/service";
+import ks1 from "../assets/ks1.webp"
 
 export default function HotelList() {
     const { user, setUser } = useContext(UserContext);
 
     useEffect(() => {
         console.log(user);
+
+        // service
+        // .get(`/hotels`, {
+        //     minPrice: 100000,
+        //     maxPrice: 10000000,
+        //     page: 0,
+        //     limit: 999
+        // })
+        // .then((res) => {
+        //     console.log(res.data)
+        // })
+        // .catch ((e) => {
+        //     toast("Lỗi tải khách sạn");
+        // })
     }, [user]);
 
     const sortOptions = [
@@ -166,18 +183,18 @@ export default function HotelList() {
 
                                 <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 m-2 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:opacity-50">
                                     <a href="/hoteldetail">
-                                        <img className="rounded-t-lg" src={ava} alt="" />
+                                        <img className="rounded-t-lg" src={ks1} alt="" />
                                         <div className="p-5">
-                                            <h5 className="mb-2 font-bold tracking-tight text-gray-900 dark:text-white text-center">Tên khách sạn</h5>
-                                            <p className="mb-2 font-normal text-gray-700 dark:text-gray-400">
-                                                <EnvironmentFilled /> Tỉnh thành
+                                            <h5 className="mb-2 font-bold tracking-tight text-gray-900 dark:text-white text-center">Khách sạn Palace SaiGon</h5>
+                                            <p className="mb-2 font-normal text-gray-700 dark:text-gray-400 truncate">
+                                                <EnvironmentFilled /> 56 - 66 Nguyễn Huệ, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam, 700000
                                             </p>
                                             <p className="mb-2 font-normal text-gray-700 dark:text-gray-400">
-                                                <MoneyCollectFilled /> Khoảng giá
+                                                <MoneyCollectFilled /> 1.190.476 VND
                                             </p>
-                                            <p className="mb-2 font-normal text-gray-700 dark:text-gray-400">
+                                            {/* <p className="mb-2 font-normal text-gray-700 dark:text-gray-400">
                                                 <StarFilled /> Rating
-                                            </p>                                       
+                                            </p>                                        */}
                                         </div>
                                     </a>
                                 </div>

@@ -62,7 +62,7 @@ const RegistHotelModal = ({ visible, onCancel }: any) => {
 
               <p>Địa chỉ</p>
               <Form.Item
-                name="address"
+                name="location"
                 rules={[{ required: true, message: "Vui lòng nhập địa chỉ" }]}
               >
                 <Input size="large" placeholder="Địa chỉ" />
@@ -116,7 +116,7 @@ const RegistHotelModal = ({ visible, onCancel }: any) => {
               </Form.Item>
             </div>
             <div className="mt-4 flex flex-row justify-center">
-              <Button type="primary" className="mb-3" htmlType="submit">
+              <Button type="primary" className="mb-3" htmlType="submit" onClick={onCancel}>
                 Đăng ký khách sạn
               </Button>
             </div>

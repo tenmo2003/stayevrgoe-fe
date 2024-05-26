@@ -1,5 +1,5 @@
 import { Disclosure } from "@headlessui/react";
-import { BellOutlined, SearchOutlined } from "@ant-design/icons";
+import { BellOutlined, MessageOutlined, SearchOutlined } from "@ant-design/icons";
 import { Input, Button } from "antd";
 import logo from "../assets/stayevrgoe.png";
 import ava from "../assets/ava.png";
@@ -107,7 +107,9 @@ const Navbar = () => {
           <div className="absolute inset-y-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {isLoggedIn ? (
               <>
-                <BellOutlined className="mr-2 cursor-pointer text-xl text-white hover:scale-110" />
+                <MessageOutlined className="mr-4 cursor-pointer text-xl text-white hover:scale-110" />
+                <BellOutlined className="mr-2 cursor-pointer text-2xl text-white hover:scale-110" />
+                
                 <div className="group relative ml-3">
                   <div className="relative flex rounded-full bg-gray-800 text-sm">
                     <span className="absolute -inset-1.5" />
