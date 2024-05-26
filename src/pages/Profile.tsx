@@ -59,23 +59,23 @@ export default function Profile() {
           toast("Lỗi tải thông tin khách sạn");
         });
 
-      // service
-      //   .get(`/hotels/${user.workingHotelId}/rooms`, {
-      //     params: {
-      //       hotelId: user.workingHotelId,
-      //       minPrice: 100000,
-      //       maxPrice: 10000000,
-      //       facilities: facilities,
-      //       page: 0,
-      //       limit: 999,
-      //     },
-      //   })
-      //   .then((res) => {
-      //     console.log(res.data.data);
-      //   })
-      //   .catch((e) => {
-      //     toast("Lỗi tải phòng khách sạn");
-      //   });
+      service
+        .get(`/hotels/${user.workingHotelId}/rooms`, {
+          params: {
+            hotelId: user.workingHotelId,
+            minPrice: 100000,
+            maxPrice: 10000000,
+            facilities: facilities,
+            page: 0,
+            limit: 999,
+          },
+        })
+        .then((res) => {
+          console.log(res.data.data);
+        })
+        .catch((e) => {
+          toast("Lỗi tải phòng khách sạn");
+        });
     }
   }, [user]);
 

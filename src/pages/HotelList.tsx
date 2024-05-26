@@ -16,6 +16,9 @@ import { useContext, useEffect } from "react";
 import { toast } from "sonner";
 import service from "../service/service";
 import ks1 from "../assets/ks1.webp"
+import lotte from "../assets/180712-4-2000-ove-hanoi-hotel.jpg.thumb.768.768.jpg";
+import diamond from "../assets/diamondwestlake.jpg"
+import hiddencharm from "../assets/hiddencharm.jpg"
 
 export default function HotelList() {
     const { user, setUser } = useContext(UserContext);
@@ -23,19 +26,20 @@ export default function HotelList() {
     useEffect(() => {
         console.log(user);
 
-        // service
-        // .get(`/hotels`, {
-        //     minPrice: 100000,
-        //     maxPrice: 10000000,
-        //     page: 0,
-        //     limit: 999
-        // })
-        // .then((res) => {
-        //     console.log(res.data)
-        // })
-        // .catch ((e) => {
-        //     toast("Lỗi tải khách sạn");
-        // })
+        service
+        .get(`/hotels`, {param:{
+            minPrice: 100000,
+            maxPrice: 10000000,
+            page: 0,
+            limit: 999
+        }
+        })
+        .then((res) => {
+            console.log(res.data)
+        })
+        .catch ((e) => {
+            toast("Lỗi tải khách sạn");
+        })
     }, [user]);
 
     const sortOptions = [
@@ -69,6 +73,33 @@ export default function HotelList() {
             ],
         },
     ];
+
+    const hotels = [
+        {
+          image: ks1,
+          name: 'Khách sạn Palace SaiGon',
+          address: '56 - 66 Nguyễn Huệ, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam, 700000',
+          price: '1.190.476'
+        },
+        {
+          image: lotte,
+          name: 'Lotte Hotel Hà Nội',
+          address: '54 P. Liễu Giai, Cống Vị, Ba Đình, Hà Nội 100000',
+          price: '2.120.476'
+        },
+        {
+          image: diamond,
+          name: 'Diamond Westlake Suite',
+          address: '96 Đ. Tô Ngọc Vân, Quảng An, Tây Hồ, Hà Nội',
+          price: '1.960.000'
+        },
+        {
+          image: hiddencharm,
+          name: 'Hidden Charm Ninh Bình',
+          address: 'No 9, Tam Coc - Bich Dong Tourist Center, Hoa Lư, Ninh Bình',
+          price: '1.590.000'
+        }
+      ];
     
     function classNames(...classes) {
       return classes.filter(Boolean).join(" ");
@@ -180,27 +211,27 @@ export default function HotelList() {
                         {/* Product grid */}
                         <div className="lg:col-span-3">
                             <div className="flex flex-row flex-wrap">
-
-                                <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 m-2 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:opacity-50">
-                                    <a href="/hoteldetail">
-                                        <img className="rounded-t-lg" src={ks1} alt="" />
-                                        <div className="p-5">
-                                            <h5 className="mb-2 font-bold tracking-tight text-gray-900 dark:text-white text-center">Khách sạn Palace SaiGon</h5>
-                                            <p className="mb-2 font-normal text-gray-700 dark:text-gray-400 truncate">
-                                                <EnvironmentFilled /> 56 - 66 Nguyễn Huệ, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam, 700000
-                                            </p>
-                                            <p className="mb-2 font-normal text-gray-700 dark:text-gray-400">
-                                                <MoneyCollectFilled /> 1.190.476 VND
-                                            </p>
-                                            {/* <p className="mb-2 font-normal text-gray-700 dark:text-gray-400">
-                                                <StarFilled /> Rating
-                                            </p>                                        */}
+                                {hotels.map((hotel, index) => (
+                                <div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-2">
+                                    <div className="flex flex-col h-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:opacity-50">
+                                    <a href="/hoteldetail" className="flex flex-col h-full">
+                                        <img className="rounded-t-lg h-[150px] w-full" src={hotel.image} alt="" />
+                                        <div className="p-5 flex flex-col flex-grow">
+                                        <h5 className="mb-2 font-bold tracking-tight text-gray-900 dark:text-white text-center">{hotel.name}</h5>
+                                        <p className="mb-2 font-normal text-gray-700 dark:text-gray-400 truncate">
+                                            <EnvironmentFilled /> {hotel.address}
+                                        </p>
+                                        <p className="mb-2 font-normal text-gray-700 dark:text-gray-400">
+                                            <MoneyCollectFilled /> {hotel.price} VND
+                                        </p>
                                         </div>
                                     </a>
+                                    </div>
                                 </div>
-
+                                ))}
                             </div>
                         </div>
+
                     </div>
                 </section>
             </main>
