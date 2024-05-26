@@ -12,6 +12,7 @@ import room1 from "../assets/room1.webp";
 import room2 from "../assets/room2.webp";
 import rate1 from "../assets/rate1.webp";
 import user from "../assets/user.png";
+import twin from "../assets/twin.webp"
 
 
 export default function HotelDetail() {
@@ -44,7 +45,7 @@ export default function HotelDetail() {
                     </div>
                     <div className="ml-auto text-right">
                         <h1>Giá/phòng/đêm/từ</h1>
-                        <h1 className="font-bold text-2xl text-[#bb6060]">1.190.476 VND</h1>
+                        <h1 className="font-bold text-2xl text-[#bb6060]">1.349.206 VND</h1>
                         <Button type="primary" className="bg-[#d65b0f] w-[240px] mt-3 text-xl h-[40px]" onClick={scrollToEmptyRooms}> Chọn phòng</Button>
                     </div>
                 </div>
@@ -98,18 +99,7 @@ export default function HotelDetail() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr className="hover:bg-gray-200">
-                                                <th scope="row" className="flex-col">
-                                                    <p className="px-6 pt-4 font-medium text-gray text-xs">Superior Double - Room Only</p>
-                                                    <p className="px-6 py-4 font-medium text-black text-xs">Không gồm bữa sáng</p>
-                                                    <p className="px-6 pb-4 font-medium text-[#38a638] text-xs">Miễn phí hủy đổi trả</p>
-                                                </th>
-                                                <td className="px-6 py-4">2 người</td>
-                                                <td className="font-bold px-6 py-4 text-l text-[#bb6060]">1.190.476 VND</td>
-                                                <td>
-                                                    <Button type="primary" className="bg-[#d65b0f] w-[120px] mt-3 text-base font-bold h-[40px] flex items-center justify-center text-center" href="/payment">Chọn</Button>
-                                                </td>
-                                            </tr>
+
                                             <tr className="hover:bg-gray-200">
                                                 <th scope="row" className="flex-col">
                                                     <p className="px-6 pt-4 font-medium text-gray text-xs">Superior Double - Room Only</p>
@@ -132,60 +122,7 @@ export default function HotelDetail() {
 
                         {/* từ đây là bỏ */}
 
-                        <div className="block max-w-[100%] p-6 bg-white border border-gray-200 rounded-lg shadow my-6">
-                            <h1 className="font-bold text-xl mb-3 ml-2">Premier Deluxe</h1>
-                            <div className="grid grid-cols-4 grid-rows-1 gap-4">
-                                <div className="row-span-1 col-span-1">
-                                    <div className="flex-col">
-                                        <img className="rounded-lg object-cover w-full h-full" src={room2} alt="img1" />
-                                        <div className="grid grid-cols-2 grid-row-1 mt-3">
-                                            <p className="col-span-2 row-span-1">Diện tích 20m2</p>
-                                            <p>Vòi tắm đứng</p>
-                                            <p>Máy lạnh</p>
-                                            <p>Nước nóng</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className=" col-span-3 row-span-2 overflow-x-auto relative sm:rounded-lg">
-                                    <table className="w-full text-sm text-left rtl:text-right dark:text-gray-400 rounded-lg">
-                                        <thead className="text-xs text-black uppercase bg-white">
-                                            <tr className="bg-gray-100">
-                                                <th scope="col" className="px-6 py-4">Lựa chọn phòng</th>
-                                                <th scope="col" className="px-6 py-4">Khách</th>
-                                                <th scope="col" className="px-6 py-4">Giá/Phòng/Đêm</th>
-                                                <th scope="col" className="px-6 py-4"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr className="hover:bg-gray-200">
-                                                <th scope="row" className="flex-col">
-                                                    <p className="px-6 pt-4 font-medium text-gray text-xs">Premier Deluxe -SinglePerson</p>
-                                                    <p className="px-6 py-4 font-medium text-black text-xs">Gồm bữa sáng</p>
-                                                    <p className="px-6 pb-4 font-medium text-[#38a638] text-xs">Miễn phí hủy đổi trả</p>
-                                                </th>
-                                                <td className="px-6 py-4">1 người</td>
-                                                <td className="font-bold px-6 py-4 text-l text-[#bb6060]">1.230.159 VND</td>
-                                                <td>
-                                                    <Button type="primary" className="bg-[#d65b0f] w-[120px] mt-3 text-base font-bold h-[40px] flex items-center justify-center text-center" href="/payment">Chọn</Button>
-                                                </td>
-                                            </tr>
-                                            <tr className="hover:bg-gray-200">
-                                                <th scope="row" className="flex-col">
-                                                    <p className="px-6 pt-4 font-medium text-gray text-xs">Premier Deluxe</p>
-                                                    <p className="px-6 py-4 font-medium text-black text-xs">Gồm bữa sáng</p>
-                                                    <p className="px-6 pb-4 font-medium text-[#38a638] text-xs">Miễn phí hủy đổi trả</p>
-                                                </th>
-                                                <td className="px-6 py-4">2 người</td>
-                                                <td className="font-bold px-6 py-4 text-l text-[#bb6060]">1.388.889 VND</td>
-                                                <td>
-                                                    <Button type="primary" className="bg-[#d65b0f] w-[120px] mt-3 text-base font-bold h-[40px] flex items-center justify-center text-center" href="/payment">Chọn</Button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                    
 
                         <div className="block max-w-[100%] p-6 bg-white border border-gray-200 rounded-lg shadow my-6">
                             <h1 className="font-bold text-xl mb-3 ml-2">Deluxe Double - Single View</h1>
@@ -195,9 +132,9 @@ export default function HotelDetail() {
                                         <img className="rounded-lg object-cover w-full h-full" src={room2} alt="img1" />
                                         <div className="grid grid-cols-2 grid-row-1 mt-3">
                                             <p className="col-span-2 row-span-1">Diện tích 26m2</p>
-                                            <p>Vòi tắm đứng</p>
-                                            <p>Máy lạnh</p>
-                                            <p>Nước nóng</p>
+                                            <p>Vòi hoa sen</p>
+                                            <p>Máy pha trà</p>
+                                            <p>Có ti vi</p>
                                         </div>
                                     </div>
                                 </div>
@@ -212,18 +149,7 @@ export default function HotelDetail() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr className="hover:bg-gray-200">
-                                                <th scope="row" className="flex-col">
-                                                    <p className="px-6 pt-4 font-medium text-gray text-xs">Deluxe Double - Single View</p>
-                                                    <p className="px-6 py-4 font-medium text-black text-xs">Gồm bữa sáng</p>
-                                                    <p className="px-6 pb-4 font-medium text-[#38a638] text-xs">Miễn phí hủy đổi trả</p>
-                                                </th>
-                                                <td className="px-6 py-4">1 người</td>
-                                                <td className="font-bold px-6 py-4 text-l text-[#bb6060]">1.408.703 VND</td>
-                                                <td>
-                                                    <Button type="primary" className="bg-[#d65b0f] w-[120px] mt-3 text-base font-bold h-[40px] flex items-center justify-center text-center" href="/payment">Chọn</Button>
-                                                </td>
-                                            </tr>
+
                                             <tr className="hover:bg-gray-200">
                                                 <th scope="row" className="flex-col">
                                                     <p className="px-6 pt-4 font-medium text-gray text-xs">Deluxe Double - Single View</p>
@@ -247,12 +173,12 @@ export default function HotelDetail() {
                             <div className="grid grid-cols-4 grid-rows-1 gap-4">
                                 <div className="row-span-1 col-span-1">
                                     <div className="flex-col">
-                                        <img className="rounded-lg object-cover w-full h-full" src={room2} alt="img1" />
+                                        <img className="rounded-lg object-cover w-full h-full" src={twin} alt="img1" />
                                         <div className="grid grid-cols-2 grid-row-1 mt-3">
                                             <p className="col-span-2 row-span-1">Diện tích 26m2</p>
-                                            <p>Vòi tắm đứng</p>
-                                            <p>Máy lạnh</p>
-                                            <p>Nước nóng</p>
+                                            <p>Vòi hoa sen</p>
+                                            <p>Cách âm</p>
+                                            <p>Có ti vi</p>
                                         </div>
                                     </div>
                                 </div>
@@ -267,18 +193,7 @@ export default function HotelDetail() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr className="hover:bg-gray-200">
-                                                <th scope="row" className="flex-col">
-                                                    <p className="px-6 pt-4 font-medium text-gray text-xs">Twin Deluxe View</p>
-                                                    <p className="px-6 py-4 font-medium text-black text-xs">Gồm bữa sáng</p>
-                                                    <p className="px-6 pb-4 font-medium text-[#38a638] text-xs">Miễn phí hủy đổi trả</p>
-                                                </th>
-                                                <td className="px-6 py-4">1 người</td>
-                                                <td className="font-bold px-6 py-4 text-l text-[#bb6060]">1.408.730 VND</td>
-                                                <td>
-                                                    <Button type="primary" className="bg-[#d65b0f] w-[120px] mt-3 text-base font-bold h-[40px] flex items-center justify-center text-center" href="/payment">Chọn</Button>
-                                                </td>
-                                            </tr>
+
                                             <tr className="hover:bg-gray-200">
                                                 <th scope="row" className="flex-col">
                                                     <p className="px-6 pt-4 font-medium text-gray text-xs">Twin Deluxe View</p>
