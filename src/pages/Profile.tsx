@@ -74,7 +74,6 @@ export default function Profile() {
           console.log(res.data.data);
         })
         .catch((e) => {
-          toast("Lỗi tải phòng khách sạn");
         });
     }
   }, [user]);
@@ -158,20 +157,90 @@ export default function Profile() {
   };
 
   const columns = [
-    { title: "Order ID", dataIndex: "id", key: "id", width: "10%" },
-    { title: "Hotel/User", dataIndex: "hotel", key: "id", width: "10%" },
-    { title: "Room", dataIndex: "roomID", key: "id", width: "10%" },
-    { title: "Time", dataIndex: "time", key: "id", width: "10%" },
-    { title: "State", dataIndex: "state", key: "id", width: "10%" },
+    { title: "Thứ tự", dataIndex: "id", key: "id", width: "3%" },
+    { title: "Khách sạn", dataIndex: "hotel", key: "id", width: "10%" },
+    { title: "Phòng", dataIndex: "roomID", key: "id", width: "7%" },
+    { title: "Thời gian", dataIndex: "time", key: "id", width: "15%" },
+    { title: "Trạng thái", dataIndex: "state", key: "id", width: "10%" },
   ];
 
+  const userBooking = [
+    { id: 1, hotel: "Khách sạn Palace SaiGon", roomID: "Superior Double", time: "2024-05-30 đến 2024-05-31 ", state: "Chờ nhận phòng" },
+  ];  
+
   const roomListColumns = [
-    { title: "roomID", dataIndex: "id" },
+    { title: "Thứ tự", dataIndex: "id" },
     { title: "Tên phòng", dataIndex: "roomName" },
     { title: "Cơ sở vật chất", dataIndex: "facilities" },
     { title: "Giá", dataIndex: "price" },
     { title: "Xoá phòng", dataIndex: "delete" },
   ];
+
+  const roomListData = [
+    { id: 1, roomName: "Superior Double", facilities: ["Vòi tắm đứng", "Máy lạnh", "Nước nóng"], price: "1.349.000 VND", delete: <button onClick={() => handleDelete(1)}>Xóa</button> },
+    { id: 2, roomName: "Delux Double - Single View", facilities: ["Vòi hoa sen", "Máy pha trà", "Có ti vi"], price: "1.567.000 VND", delete: <button onClick={() => handleDelete(2)}>Xóa</button> },
+    { id: 3, roomName: "Twin Deluxe View", facilities: ["Vòi hoa sen", "Cách âm", "Có ti vi"], price: "1.567.000 VND", delete: <button onClick={() => handleDelete(3)}>Xóa</button> },
+    // { id: 4, roomName: "Phòng Suite", facilities: ["Wi-Fi", "Phòng cách âm", "Giường king"], price: "2.000.000 VND", delete: <button onClick={() => handleDelete(4)}>Xóa</button> }
+  ];  
+
+  // const roomListData = [
+  //   { id: 1, roomName: "Phòng test", facilities: ["Có ban công", "Cách âm"], price: "1.349.000 VND", delete: <button onClick={() => handleDelete(1)}>Xóa</button> },
+  //   { id: 2, roomName: "Superior Double", facilities: ["Vòi tắm đứng", "Máy lạnh", "Nước nongs"], price: "1.349.000 VND", delete: <button onClick={() => handleDelete(1)}>Xóa</button> },
+  //   { id: 3, roomName: "Delux Double - Single View", facilities: ["Vòi hoa sen", "Máy pha trà", "Có ti vi"], price: "1.567.000", delete: <button onClick={() => handleDelete(2)}>Xóa</button> },
+  //   { id: 4, roomName: "Twin Deluxe View", facilities: ["Vòi hoa sen", "Cách âm", "Có ti vi"], price: "1.567.000 VND", delete: <button onClick={() => handleDelete(3)}>Xóa</button> },
+  // ];  
+
+  const [currentState1, setCurrentState1] = useState("Chờ nhận phòng");
+  const [currentState2, setCurrentState2] = useState("Chờ trả phòng");
+  const [currentState3, setCurrentState3] = useState("Hoàn thành");
+
+  const handleStateChange = () => {
+    switch (currentState1) {
+      case "Chờ nhận phòng":
+        setCurrentState1("Chờ trả phòng");
+        break;
+      case "Chờ trả phòng":
+        setCurrentState1("Hoàn thành");
+        break;
+      case "Hoàn thành":
+        break;
+      default:
+        setCurrentState1("Chờ nhận phòng");
+    }
+  };
+
+  const handleStateChange2 = () => {
+    switch (currentState2) {
+      case "Chờ nhận phòng":
+        setCurrentState2("Chờ trả phòng");
+        break;
+      case "Chờ trả phòng":
+        setCurrentState2("Hoàn thành");
+        break;
+      case "Hoàn thành":
+        break;
+      default:
+        setCurrentState2("Chờ nhận phòng");
+    }
+  };
+
+  const bookingHistoryData = [
+    { id: 1, user: "Giang", roomName: "Superior Double", time: "2024-05-30 đến 2024-05-31", price: "1.349.000 VND", state: <Button onClick={handleStateChange}>{currentState1}</Button> },
+    { id: 2, user: "ntnm", roomName: "Delux Double - Single View", time: "2024-05-24 đến 2024-05-25", price: "1.567.000 VND", state: <Button onClick={handleStateChange2}>{currentState2}</Button>  },
+    { id: 3, user: "test", roomName: "Twin Deluxe View", time: "2024-05-23 đến 2024-05-24", price: "1.567.000 VND", state: <Button>{currentState3}</Button>  },
+    { id: 4, user: "test", roomName: "Delux Double - Single View", time: "2024-05-23 đến 2024-05-26", price: "3.134.000 VND", state: <Button>{currentState3}</Button>  },
+  ];
+  
+
+  const [roomList, setRoomList] = useState(roomListData);
+  const handleDelete = (id:any) => {
+    setRoomList(roomListData.filter(room => room.id !== id));
+  };
+
+  const dataWithDeleteButton = roomListData.map(room => ({
+    ...room,
+    delete: <Button onClick={() => handleDelete(room.id)}>Xóa</Button>
+  }));
 
   const bookingHistoryColumns = [
     { title: "id", dataIndex: "id" },
@@ -311,6 +380,8 @@ export default function Profile() {
                     scroll={{ x: 800 }}
                     className="w-full"
                     columns={columns}
+                    dataSource={userBooking}
+                    rowKey="id"
                   />
                 </>
               ) : (
@@ -498,8 +569,9 @@ export default function Profile() {
 
                         <Table
                           scroll={{ x: 840 }}
-                          dataSource={[]}
                           columns={roomListColumns}
+                          dataSource={dataWithDeleteButton} 
+                          rowKey="id"
                         />
                       </TabPane>
                       <TabPane tab="Lịch sử đặt phòng" key="3">
@@ -517,7 +589,7 @@ export default function Profile() {
 
                         <Table
                           scroll={{ x: 840 }}
-                          dataSource={[]}
+                          dataSource={bookingHistoryData}
                           columns={bookingHistoryColumns}
                         />
                       </TabPane>
