@@ -1,47 +1,128 @@
-import React from 'react';
-import { Modal, Input, Button, Radio, Flex  } from "antd";
-import { UserOutlined, MailOutlined, PhoneOutlined, KeyOutlined } from '@ant-design/icons';
+import { Modal, Input, Button, Radio, Flex } from "antd";
+import {
+  UserOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  KeyOutlined,
+} from "@ant-design/icons";
+import { useState } from "react";
+import service from "../service/service";
+import { toast } from "sonner";
 
-const SignupModal = ({ visible, onCancel, onSignup }) => {
-    return (
-        <Modal visible={visible} onCancel={onCancel} footer={null}>
-            <div className='flex justify-center'>
-                <div className='w-[80%]'>
-                    <h1 className="text-xl font-bold text-gray-900 md:text-2xl flex justify-center">
-                        Signup
-                    </h1>
-                    <div className='mt-4 flex flex-col'>
-                        <p>Username</p>
-                        <Input size="large" placeholder="username" prefix={<UserOutlined className='pr-2'/>} className='mb-6' />
-                        <p>Email</p>
-                        <Input size="large" placeholder="email" prefix={<MailOutlined className='pr-2'/>} className='mb-6' />
-                        <p>Phone number</p>
-                        <Input size="large" placeholder="phone number" prefix={<PhoneOutlined className='pr-2'/>} className='mb-6' />
-                        <p>Password</p>
-                        <Input.Password size="large" placeholder="password" prefix={<KeyOutlined className='pr-2'/>} className='mb-6' />
-                        <p>Confirm password</p>
-                        <Input.Password size="large" placeholder="confirm password" prefix={<KeyOutlined className='pr-2'/>} className='mb-6' />
-                        <p>Bạn là?</p>
-                        <Flex vertical gap="middle">
-                            <Radio.Group defaultValue="a" buttonStyle="solid" className='flex flex-row mb-6'>
-                                <Radio.Button value="a" className="w-[50%] h-9 flex justify-center items-center">Khách hàng</Radio.Button>
-                                <Radio.Button value="b" className="w-[50%] h-9 flex justify-center items-center">Quản lý khách sạn</Radio.Button>
-                            </Radio.Group>
-                        </Flex>
-                    </div>
-                    
-                    <div className='flex flex-row justify-center'>
-                        <p>Đã có tài khoản? </p>
-                        <p className='ml-2 font-bold cursor-pointer hover:scale-110 text-blue-500' onClick={onSignup}> Đăng nhập </p>
-                    </div>
+const SignupModal = ({ visible, onCancel, onSignup }: any) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("USER");
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
-                    <div className='mt-4 flex flex-row justify-center'>
-                        <Button type='primary' className="mb-3" onClick={onSignup} >Đăng ký</Button>
-                    </div>
-                </div>
-            </div>
-        </Modal>
-    );
+  const signup = async () => {
+    service
+        .post("/auth/signup", { email, password, role, fullName, phoneNumber })
+        .then((res) => {
+            toast("Đăng ký thành công");
+        })
+        .catch((err) => {
+            toast("Đăng ký thất bại")
+        });
+  };
+
+  const handleSignup = async () => {
+    await signup();
+    onSignup();
+  };
+
+  return (
+    <Modal visible={visible} onCancel={onCancel} footer={null}>
+      <div className="flex justify-center">
+        <div className="w-[80%]">
+          <h1 className="flex justify-center text-xl font-bold text-gray-900 md:text-2xl">
+            Signup
+          </h1>
+          <div className="mt-4 flex flex-col">
+            <p>Full name</p>
+            <Input
+              size="large"
+              placeholder="full name"
+              onChange={(e) => setFullName(e.target.value)}
+              prefix={<UserOutlined className="pr-2" />}
+              className="mb-6"
+            />
+            <p>Email</p>
+            <Input
+              size="large"
+              placeholder="email"
+              onChange={(e) => setEmail(e.target.value)}
+              prefix={<MailOutlined className="pr-2" />}
+              className="mb-6"
+            />
+            <p>Phone number</p>
+            <Input
+              size="large"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              placeholder="phone number"
+              prefix={<PhoneOutlined className="pr-2" />}
+              className="mb-6"
+            />
+            <p>Password</p>
+            <Input.Password
+              size="large"
+              placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
+              prefix={<KeyOutlined className="pr-2" />}
+              className="mb-6"
+            />
+            <p>Confirm password</p>
+            <Input.Password
+              size="large"
+              placeholder="confirm password"
+              prefix={<KeyOutlined className="pr-2" />}
+              className="mb-6"
+            />
+            <p>Bạn là?</p>
+            <Flex vertical gap="middle">
+              <Radio.Group
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                buttonStyle="solid"
+                className="mb-6 flex flex-row"
+              >
+                <Radio.Button
+                  value="USER"
+                  className="flex h-9 w-[50%] items-center justify-center"
+                >
+                  Khách hàng
+                </Radio.Button>
+                <Radio.Button
+                  value="HOTEL_MANAGER"
+                  className="flex h-9 w-[50%] items-center justify-center"
+                >
+                  Quản lý khách sạn
+                </Radio.Button>
+              </Radio.Group>
+            </Flex>
+          </div>
+
+          <div className="flex flex-row justify-center">
+            <p>Đã có tài khoản? </p>
+            <p
+              className="ml-2 cursor-pointer font-bold text-blue-500 hover:scale-110"
+              onClick={onSignup}
+            >
+              {" "}
+              Đăng nhập{" "}
+            </p>
+          </div>
+
+          <div className="mt-4 flex flex-row justify-center">
+            <Button type="primary" className="mb-3" onClick={handleSignup}>
+              Đăng ký
+            </Button>
+          </div>
+        </div>
+      </div>
+    </Modal>
+  );
 };
 
 export default SignupModal;
