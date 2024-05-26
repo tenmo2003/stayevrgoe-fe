@@ -63,7 +63,7 @@ function Home() {
                     Lưu trú tại Palace Hotel Saigon là một lựa chọn đúng đắn khi quý khách đến thăm Bến Nghé
                   </p>
                   <p className="mb-3 font-medium text-[#bb6060]">
-                    1.350.000VND
+                    1.349.206 VND
                   </p>
                   <a
                     href="/hoteldetail"
@@ -137,7 +137,7 @@ function Home() {
             </div>
 
             <div className="w-full p-2 sm:w-1/2 lg:w-1/4">
-            <div className="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+              <div className="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
                 <a href="/hoteldetail">
                   <img
                     className="h-[200px] w-full rounded-t-lg"
@@ -148,7 +148,7 @@ function Home() {
                 <div className="p-5">
                   <a href="/hoteldetail">
                     <h5 className="text-black-900 mb-2 font-bold tracking-tight dark:text-black">
-                        Diamond Westlake Suites
+                      Diamond Westlake Suites
                     </h5>
                   </a>
                   <p className="... mb-3 truncate font-normal text-gray-700 dark:text-gray-400">
@@ -181,9 +181,9 @@ function Home() {
                 </div>
               </div>
             </div>
-            
+
             <div className="w-full p-2 sm:w-1/2 lg:w-1/4">
-            <div className="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+              <div className="rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
                 <a href="/hoteldetail">
                   <img
                     className="h-[200px] w-full rounded-t-lg"
@@ -198,7 +198,7 @@ function Home() {
                     </h5>
                   </a>
                   <p className="... mb-3 truncate font-normal text-gray-700 dark:text-gray-400">
-                  Nằm tại trung tâm của khu nghỉ dưỡng, Ninh Bình Hidden Charm Hotel & Resort sở hữu một hồ bơi vô cực view núi ngoài trời với thiết kế hiện đại, độc đáo
+                    Nằm tại trung tâm của khu nghỉ dưỡng, Ninh Bình Hidden Charm Hotel & Resort sở hữu một hồ bơi vô cực view núi ngoài trời với thiết kế hiện đại, độc đáo
                   </p>
                   <p className="mb-3 font-medium text-[#bb6060]">
                     1.590.000VND
